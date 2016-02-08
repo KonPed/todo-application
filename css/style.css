@@ -1,6 +1,6 @@
 /* Basic Style */
 body {
-  background: #fff;
+  background: papayawhip;
   color: #333;
   font-family: Lato, sans-serif;
 }
@@ -26,20 +26,25 @@ input, button {
 button {
   background: none;
   border: 0px;
-  color: #888;
+  color: maroon;
   font-size: 15px;
   width: 60px;
-  margin: 10px 0 0;
+  margin: 0 0 0 10px;
   font-family: Lato, sans-serif;
   cursor: pointer;
 }
+
+.delete {
+  margin-top: 10px;
+}
+
 button:hover {
   color: #333;
 }
 /* Heading */
 h3,
 label[for='new-task'] {
-  color: #333;
+  color: maroon;
   font-weight: 700;
   font-size: 15px;
   border-bottom: 2px solid #333;
@@ -54,13 +59,13 @@ input[type="text"] {
   height: 18px;
   padding: 10px;
   border: 1px solid #ddd;
-  background: #fff;
+  background: peachpuff;
   border-radius: 6px;
   font-family: Lato, sans-serif;
-  color: #888;
+  color: indianred;
 }
 input[type="text"]:focus {
-  color: #333;
+  color: maroon;
 }
 
 /* New Task */
@@ -70,8 +75,9 @@ label[for='new-task'] {
 }
 input#new-task {
   float: left;
-  width: 318px;
+  width: 260px;
 }
+
 p > button:hover {
   color: #0FC57C;
 }
@@ -80,7 +86,6 @@ p > button:hover {
 li {
   overflow: hidden;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
 }
 li > input[type="checkbox"] {
   margin: 0 10px;
@@ -92,18 +97,19 @@ li > label {
   line-height: 40px;
   width: 237px;
   padding: 0 0 0 11px;
+  color: maroon;
 }
 li >  input[type="text"] {
   width: 226px;
 }
 li > .delete:hover {
-  color: #CF2323;
+  color: red;
 }
 
 /* Completed */
 #completed-tasks label {
   text-decoration: line-through;
-  color: #888;
+  color: red;
 }
 
 /* Edit Task */
