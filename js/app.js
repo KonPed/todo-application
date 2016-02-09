@@ -1,11 +1,11 @@
 //Problem: User interaction does not provide desired results.
 //SolutionL Add interactivity so the user can manage tasks.
-var addButton = document.getElementsByTagName("button")[0];
+var addButton = document.getElementById("add");
 var taskInput = document.getElementById("new-task"); //#new-task
 var incompleteTask = document.getElementById("incomplete-tasks");
 var completedTasks = document.getElementById("completed-tasks");
 //Add a new task
-var addTask = function() {
+function addTask() {
   console.log("Add task...");
   //When the button is pressed
   //Create a new list item with the text from the #new-task
@@ -18,7 +18,7 @@ var addTask = function() {
 }
 
 //Edit an existing task
-var editTask = function() {
+function editTask() {
   console.log("Edit task...");
   //When the edit button is pressed
     //if the class of the parent is .editMode
@@ -29,21 +29,21 @@ var editTask = function() {
 }
 
 //Delete an existing task
-var deleteTask = function() {
+function deleteTask() {
   console.log("Delete task...");
   //When the delete button is pressed
     //Remove the parent list item from the ul
 }
 
 //Mark a task as complete
-var taskCompleted = function() {
+function taskCompleted() {
   console.log("Task Complete...");
   //When the checkbox is checked
     //Append the task list to the completed-tasks
 }
 
 //Mark a task as incomplete
-var taskIncompleted = function() {
+function taskIncompleted() {
   console.log("Task incomplete...");
   //When the checkbox is unchecked
     //Append the task list to the incomplete-tasks
