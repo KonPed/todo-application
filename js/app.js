@@ -43,9 +43,8 @@ function addTask() {
   //Append listItem to the incomplete-tasks list
   incompleteTask.appendChild(listItem);
   bindEventTasks(listItem, taskCompleted);
+  taskInput.value = "";
 }
-
-addButton.onclick = addTask;
 
 //Edit an existing task
 function editTask() {
@@ -56,15 +55,14 @@ function editTask() {
     //if the class of the parent is .editMode
     if (listItem.classList.contains("editMode")) {
       //Switch from .editMode
-      listItem.classList.toggle("editMode");
       //label text become the input's value
       label.textContent = editInput.value;
     } else {
       //else switch to .editMode
-      listItem.classList.toggle("editMode");
       //input value bocomes the label's text
       editInput.value = label.textContent;
     }
+    listItem.classList.toggle("editMode");
 }
 
 //Delete an existing task
@@ -119,3 +117,5 @@ function bindEventTasks(taskListItem, checkboxEventHandler) {
       //bind event to list item's children (taskIncompleted)
       bindEventTasks(completedTasks.children[i], taskIncompleted);
     }
+
+addButton.onclick = addTask;
