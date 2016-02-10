@@ -50,12 +50,21 @@ addButton.onclick = addTask;
 //Edit an existing task
 function editTask() {
   console.log("Edit task...");
-  //When the edit button is pressed
+  var listItem = this.parentNode;
+  var editInput = listItem.querySelector("input[type='text']");
+  var label = listItem.querySelector("label");
     //if the class of the parent is .editMode
+    if (listItem.classList.contains("editMode")) {
       //Switch from .editMode
+      listItem.classList.toggle("editMode");
       //label text become the input's value
-    //else switch to .editMode
+      label.textContent = editInput.value;
+    } else {
+      //else switch to .editMode
+      listItem.classList.toggle("editMode");
       //input value bocomes the label's text
+      editInput.value = label.textContent;
+    }
 }
 
 //Delete an existing task
