@@ -37,13 +37,17 @@ function createNewTask(taskString) {
 }
 //Add a new task
 function addTask() {
-  console.log("Add task...");
   //Create a new list item with the text from the #new-task
   var listItem = createNewTask(taskInput.value);
+  if (taskInput.value) {
+    console.log("Add task...");
   //Append listItem to the incomplete-tasks list
   incompleteTask.appendChild(listItem);
   bindEventTasks(listItem, taskCompleted);
   taskInput.value = "";
+} else {
+  alert("Please enter a task!!!");
+}
 }
 
 //Edit an existing task
@@ -54,13 +58,17 @@ function editTask() {
   var label = listItem.querySelector("label");
     //if the class of the parent is .editMode
     if (listItem.classList.contains("editMode")) {
+      console.log("Yes");
       //Switch from .editMode
       //label text become the input's value
       label.textContent = editInput.value;
-    } else {
+      //change the text of edit button to "save"
+      this.textContent = "Edit";
+      } else {
       //else switch to .editMode
       //input value bocomes the label's text
       editInput.value = label.textContent;
+      this.textContent = "Save";
     }
     listItem.classList.toggle("editMode");
 }
@@ -121,6 +129,7 @@ function bindEventTasks(taskListItem, checkboxEventHandler) {
 function requestOther() {
   console.log("Requested");
 }
-
+//add EventListeners to the addButton instead of onclick Events
+//because we could not call the requestOther function at the same time onclick
 addButton.addEventListener("click", addTask);
 addButton.addEventListener("click", requestOther);
