@@ -118,4 +118,9 @@ function bindEventTasks(taskListItem, checkboxEventHandler) {
       bindEventTasks(completedTasks.children[i], taskIncompleted);
     }
 
-addButton.onclick = addTask;
+function requestOther() {
+  console.log("Requested");
+}
+
+addButton.addEventListener("click", addTask);
+addButton.addEventListener("click", requestOther);
