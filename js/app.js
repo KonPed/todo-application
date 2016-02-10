@@ -4,18 +4,41 @@ var addButton = document.getElementById("add");
 var taskInput = document.getElementById("new-task"); //#new-task
 var incompleteTask = document.getElementById("incomplete-tasks");
 var completedTasks = document.getElementById("completed-tasks");
+
+//Create the li item
+function createNewTask(taskString) {
+  //Create a new list item
+  var listItem = document.createElement("li");
+  //Create an input checkbox
+  var checkbox = document.createElement("input");//checkbox
+  //Create an input label
+  var label = document.createElement("label");
+  //Create an input text
+  var editInput = document.createElement("input");
+  //Create an input button with class edit
+  var editButton = document.createElement("button");
+  //Create an input button with class delete
+  var deleteButton = document.createElement("button");
+  //Each of these elements needs modifying.
+  
+  //Each of these elements needs appending.
+  listItem.appendChild(checkbox);
+  listItem.appendChild(label);
+  listItem.appendChild(editInput);
+  listItem.appendChild(editButton);
+  listItem.appendChild(deleteButton);
+  return listItem;
+}
 //Add a new task
 function addTask() {
   console.log("Add task...");
-  //When the button is pressed
   //Create a new list item with the text from the #new-task
-  //Create an input checkbox
-  //Create an input label
-  //Create an input text
-  //Create an input button with class edit
-  //Create an input button with class delete
-  //Each of these elements, needs modified and appended.
+  var listItem = createNewTask();
+  //Append listItem to the incomplete-tasks list
+  incompleteTask.appendChild(listItem);
 }
+
+addButton.onclick = addTask;
 
 //Edit an existing task
 function editTask() {
@@ -50,7 +73,6 @@ function taskIncompleted() {
 }
 
 function bindEventTasks(taskListItem, checkboxEventHandler) {
-  console.log("Bind list item events");
   //select taskListItem children
   var checkbox = taskListItem.querySelector("input[type='checkbox']");
   var editButton = taskListItem.querySelector("button.edit");
@@ -73,6 +95,6 @@ function bindEventTasks(taskListItem, checkboxEventHandler) {
 //Cycle over completedTasks ul li items
     //for each list item
     for (var i = 0; i < completedTasks.children.length; i++) {
+      //bind event to list item's children (taskIncompleted)
       bindEventTasks(completedTasks.children[i], taskIncompleted);
     }
-      //bind event to list item's children (taskIncompleted)
