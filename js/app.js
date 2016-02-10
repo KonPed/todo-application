@@ -20,7 +20,7 @@ function createNewTask(taskString) {
   //Create an input button with class delete
   var deleteButton = document.createElement("button");
   //Each of these elements needs modifying.
-  
+
   //Each of these elements needs appending.
   listItem.appendChild(checkbox);
   listItem.appendChild(label);
@@ -36,6 +36,7 @@ function addTask() {
   var listItem = createNewTask();
   //Append listItem to the incomplete-tasks list
   incompleteTask.appendChild(listItem);
+  bindEventTasks(listItem, taskCompleted);
 }
 
 addButton.onclick = addTask;
@@ -61,15 +62,19 @@ function deleteTask() {
 //Mark a task as complete
 function taskCompleted() {
   console.log("Task Complete...");
-  //When the checkbox is checked
     //Append the task list to the completed-tasks
+    var listItem = this.parentNode;
+    completedTasks.appendChild(listItem);
+    bindEventTasks(listItem, taskIncompleted);
 }
 
 //Mark a task as incomplete
 function taskIncompleted() {
   console.log("Task incomplete...");
-  //When the checkbox is unchecked
-    //Append the task list to the incomplete-tasks
+  //Append the task list to the incomplete-tasks
+  var listItem = this.parentNode;
+  incompleteTask.appendChild(listItem);
+  bindEventTasks(listItem, taskCompleted);
 }
 
 function bindEventTasks(taskListItem, checkboxEventHandler) {
